@@ -1,7 +1,7 @@
 project "box2d"
 	kind "StaticLib"
 	language "C++"
-	cppdialect "C++20"
+	cppdialect "C++17"
 	staticruntime "off"
 
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
@@ -11,6 +11,7 @@ project "box2d"
 	{
 		"src/**.h",
 		"src/**.cpp",
+		"src/**.c",
 		"include/**.h"
 	}
 
@@ -20,8 +21,14 @@ project "box2d"
 		"src"
 	}
 
+	defines
+	{
+		"_CRT_SECURE_NO_WARNINGS"
+	}
+
 	filter "system:windows"
 		systemversion "latest"
+		buildoptions { "/std:c11", "/experimental:c11atomics" } -- 添加C11标准和实验性C11原子操作支持
 
 	filter "configurations:Debug"
 		runtime "Debug"

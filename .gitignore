@@ -7,3 +7,8 @@ settings.ini
 .DS_Store
 CMakeUserPresets.json
 .cache/
+*.vcxproj*
+
+# Binaries
+**/bin/
+bin-int/
