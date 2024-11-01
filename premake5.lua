@@ -2,7 +2,7 @@ project "box2d"
 	kind "StaticLib"
 	language "C++"
 	cppdialect "C++17"
-	cdialect "c17"
+	cdialect "C17"
 	staticruntime "off"
 
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
